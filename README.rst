@@ -36,6 +36,23 @@ Usage
     if __name__ == '__main__':
         mytest()
 
+Specify an alternate exception to raise on timeout:
+
+::
+
+    import time
+    import timeout_decorator
+
+    @timeout_decorator.timeout(5, timeout_exception=StopIteration)
+    def mytest():
+        print "Start"
+        for i in range(1,10):
+            time.sleep(1)
+            print "%d seconds have passed" % i
+
+    if __name__ == '__main__':
+        mytest()
+
 Multithreading
 --------------
 
@@ -88,7 +105,7 @@ See `License file <https://github.com/pnpnpn/timeout-decorator/blob/master/LICEN
 
 .. |Build Status| image:: https://travis-ci.org/pnpnpn/timeout-decorator.svg?branch=master
    :target: https://travis-ci.org/pnpnpn/timeout-decorator
-.. |Pypi Status| image:: https://pypip.in/v/timeout-decorator/badge.png
-    :target: https://crate.io/packages/timeout-decorator/
+.. |Pypi Status| image:: https://badge.fury.io/py/timeout-decorator.svg
+    :target: https://badge.fury.io/py/timeout-decorator
 .. |Coveralls Status| image:: https://coveralls.io/repos/pnpnpn/timeout-decorator/badge.png?branch=master
     :target: https://coveralls.io/r/pnpnpn/timeout-decorator
